@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // define a port
-const PORT = 4010;
+const PORT = 3050;
 
 
 // Data
@@ -132,7 +132,7 @@ app.use((request, response) => {
   });
   
 // Start the server
-  const PORT = process.env.PORT || 4010;
+  const PORT = process.env.PORT || 3050;
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });
