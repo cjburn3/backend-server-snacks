@@ -124,3 +124,6 @@ app.use((request, response) => {
     console.log(`Server is running on port ${PORT}`);
   });
   
+
+//SUPABASE_URL=https://yejsuqkrfxcqgwxfqfab.supabase.co
+//SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InllanN1cWtyZnhjcWd3eGZxZmFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjU0MDM2NDcsImV4cCI6MjA0MDk3OTY0N30.3txpQGFt-2MzCF3fTmtjK-7mLLetEddbrsSq1rotUOo
