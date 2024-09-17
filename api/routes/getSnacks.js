@@ -1,28 +1,25 @@
-const express = require('express');
-const axios = require('axios');
-require('dotenv').config();
+const supabase = require('../../supabaseinstance');
+const axios = require('axios')
 
-const app = express();
-const PORT = 3000;
+const cache = {};
 
-const SUPABASE_URL = process.env.SUPABASE_URL;
-const SUPABASE_KEY = process.env.SUPABASE_KEY;
-const SUPABASE_HEADERS = {
-  'apikey': SUPABASE_KEY,
-  'Authorization': `Bearer ${SUPABASE_KEY}`,
-};
-
-app.get('/snacks', async (req, res) => {
+// GET single snack by ID
+const getAll = async (req, res) => {
+  const snackId = req.params.id;
   try {
     const { data } = await axios.get(`${SUPABASE_URL}/rest/v1/snacks`, {
       headers: SUPABASE_HEADERS,
     });
-    res.json(data);
+    if (data.length > 0) {
+      res.json(data[0]);
+    } else {
+      res.status(404).send('Snack not found');
+    }
   } catch (error) {
-    res.status(500).send('Error fetching snacks');
+    res.status(500).json({message: "Error", err: error.message})
   }
-});
+}
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+
+
+module.exports = getAll
