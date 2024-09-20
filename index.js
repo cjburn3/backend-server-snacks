@@ -8,6 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 const getSnack = require('./api/routes/getSnacks')
+const postSnack = require('./api/routes/postSnacks')
 
 let snacks =
   [
@@ -90,7 +91,25 @@ let snacks =
       "price": 3.19,
       "category": "Healthy Snacks",
       "inStock": false
-    }
+    }, 
+    
+      {
+        "id": 11,
+        "name": "Rice Crackers 11",
+        "description": "Light and crispy rice crackers.",
+        "price": 3.19,
+        "category": "Healthy Snacks",
+        "inStock": false
+      },
+      {
+        "id": 12,
+        "name": "Rice Crackers 11",
+        "description": "Light and crispy rice crackers.",
+        "price": 3.19,
+        "category": "Healthy Snacks",
+        "inStock": false
+      }
+    
   ]
 
 app.get("/items", (request, response, next) => {
@@ -113,7 +132,8 @@ app.post("/items", (request, response) => {
 });
 
 
-app.get('/snack', getSnack)
+app.get('/careySnacks', getSnack)
+app.post('/careySnacks', postSnack)
 
 app.use((request, response) => {
   response.status(404).json({ error: "Not Found" });
