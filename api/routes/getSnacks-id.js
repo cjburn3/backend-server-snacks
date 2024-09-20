@@ -2,7 +2,6 @@ const supabase = require('../../supabaseinstance');
 
 const cache = {};
 
-// GET single snack by ID
 const getAllID = async (req, res) => {
   const snackId = req.params.id;
   try {
